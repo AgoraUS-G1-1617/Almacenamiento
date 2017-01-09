@@ -8,13 +8,13 @@ try{
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
-	$sql = "SELECT distinct votation_id FROM Votes ";
+	$sql = "SELECT distinct id_poll FROM Votes ";
 	$result = $conn->query($sql);
 	
 	$votations = array();
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
-	        $votations[] = $row["votation_id"];
+	        $votations[] = $row["id_poll"];
 	    }
 	}
 	

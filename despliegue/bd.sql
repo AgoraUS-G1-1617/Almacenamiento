@@ -24,6 +24,4 @@ L
    foreign key (code_vote) references votes(code_vote) on update cascade on delete cascade
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 
-INSERT INTO Votes VALUE(NULL,'PRUEBA',1);
-
 COMMIT;

@@ -38,7 +38,6 @@ try{
 	
 	$sql = "INSERT INTO Votes(age,code_vote, id_poll,genre,comunity) VALUES ('$age','$id', '$votation_id','$genre','$comunity')";
 	$result = $conn->query($sql);
-	echo gettype($result);
 	foreach($answers as $valor){
 		$question = $valor['question'];
 		$answer = $valor['answers_question'];	

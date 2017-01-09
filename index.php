@@ -20,10 +20,10 @@ if(!$isLoguedAsAdmin){
 
 /*
  * $returnUrl sirve para que cuando hagamos un login trabajando en desarrollo, la url a la que debe redirigirnos es http://localhost/egc/src/
- * Pero cuando estamos con la herramienta ya desplegada, la url a la que debe redirigirnos es http://storage-egc1516.rhcloud.com
+ * Pero cuando estamos con la herramienta ya desplegada, la url a la que debe redirigirnos es https://egc1617almacenamiento.000webhostapp.com/
  */
-//$returnUrl= "http://storage-egc1516.rhcloud.com"
-$returnUrl= "http://localhost/egc/src/"
+$returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
+//$returnUrl= "http://localhost/egc/src/"
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -74,7 +74,7 @@ $returnUrl= "http://localhost/egc/src/"
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
                 <?php if(!$isLoguedAsAdmin and !$isLoguedAsNotAdmin): ?>
-                	<a class="navbar-brand page-scroll" href="http://auth-egc.azurewebsites.net/?returnUrl=<?php echo $returnUrl ?>">LOGIN</a>
+                	<a class="navbar-brand page-scroll" href="https://autha.agoraus1.egc.duckdns.org//?returnUrl=<?php echo $returnUrl ?>">LOGIN</a>
                 <?php elseif($isLoguedAsAdmin || $isLoguedAsNotAdmin): ?>
                 	<a class="navbar-brand page-scroll" href="../src/services/logout.php">LOG OUT</a>
                 <?php endif; ?>
@@ -104,7 +104,7 @@ $returnUrl= "http://localhost/egc/src/"
             <div class="header-content-inner">
                 <h1>Bienvenido a almacenamiento de votos</h1>
                 <hr>
-                <p>Esta es la API del m&oacute;dulo de almacenamiento de la aplicaci&oacute;n Agora US 15/16</p>
+                <p>Esta es la API del m&oacute;dulo de almacenamiento de la aplicaci&oacute;n Agora US 16/17</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">&iquest;Por d&oacute;nde empezamos...?</a>
             </div>
         </div>
@@ -197,7 +197,9 @@ $returnUrl= "http://localhost/egc/src/"
 				</tr>
 				<tr>
 					<td> 
-						vote (<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/vote.php">http://storage-egc1516.rhcloud.com/vote.php</a>)
+						vote 
+						<br/>
+						(<a>https://egc1617almacenamiento.000webhostapp.com/vote.php</a>)
 					</td>
 					<td> 
 						POST
@@ -213,12 +215,14 @@ $returnUrl= "http://localhost/egc/src/"
 						Json con un mensaje de respuesta que indica si la operaci&oacute;n se ha resuelto correctamente. (el mensaje ser&aacute; 1 si todo sali&oacute; bien y 0 en caso contrario)
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/vote.php">http://storage-egc1516.rhcloud.com/vote.php</a>) Y con RESTClient ponemos: {"vote":"VotoPrueba","votation_id":"2"}
+						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/vote.php">https://egc1617almacenamiento.000webhostapp.com/vote.php</a>) Y con RESTClient ponemos: {"vote":"VotoPrueba","votation_id":"2"}
 					</td>
 				</tr>
 				<tr>
 					<td> 
-						get_votes (<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/get_votes.php">http://storage-egc1516.rhcloud.com/get_votes.php</a>)
+						get_votes 
+						<br />
+						(<a>https://egc1617almacenamiento.000webhostapp.com/get_votes.php</a>)
 					</td>
 					<td> 
 						GET
@@ -233,12 +237,14 @@ $returnUrl= "http://localhost/egc/src/"
 						Json con la lista de votos y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/get_votes.php?votation_id=1">http://storage-egc1516.rhcloud.com/get_votes.php?votation_id=1</a>)
+						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/get_votes.php?votation_id=1">https://egc1617almacenamiento.000webhostapp.com/get_votes.php?votation_id=1</a>)
 					</td>
 				</tr>
 				<tr>
 					<td> 
-						get_votations (<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/get_votations.php">http://storage-egc1516.rhcloud.com/get_votations.php</a>)
+						get_votations 
+						<br />
+						(<a > https://egc1617almacenamiento.000webhostapp.com/get_votations.php</a>)
 					</td>
 					<td> 
 						GET
@@ -253,7 +259,7 @@ $returnUrl= "http://localhost/egc/src/"
 						Json con la lista de IDs de las votaciones y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="http://storage-egc1516.rhcloud.com/get_votations.php">http://storage-egc1516.rhcloud.com/get_votations.php</a>)
+						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/get_votations.php">https://egc1617almacenamiento.000webhostapp.com/get_votations.php</a>)
 					</td>
 				</tr>
 			</table>
@@ -275,7 +281,7 @@ $returnUrl= "http://localhost/egc/src/"
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a class="cont" href="mailto:your-email@your-domain.com">almacenamiento.de.votos@gmail.com</a></p>
+                    <p><a class="cont" href="mailto:your-email@your-domain.com">almacenamientodevotos17@gmail.com</a></p>
                 </div>
                 <div class="col-lg-4 text-center">
                 </div>
@@ -286,7 +292,7 @@ $returnUrl= "http://localhost/egc/src/"
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
-                    <a href="https://github.com/FraVieMor/EGC-Almacenamiento-de-votos-18-" target="_blank" class="portfolio-box">
+                    <a href="https://github.com/AgoraUS-G1-1617/Almacenamiento" target="_blank" class="portfolio-box">
                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -301,12 +307,12 @@ $returnUrl= "http://localhost/egc/src/"
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="https://1984.lsi.us.es/wiki-egc/index.php/Trabajo_-_15/16" target="_blank" class="portfolio-box">
+                    <a href="https://1984.lsi.us.es/wiki-egc/index.php/Almacenamiento_1617_G1" target="_blank" class="portfolio-box">
                         <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    EGC 15-16
+                                    EGC 16-17
                                 </div>
                                 <div class="project-name">
                                     &iexcl;Visita la wiki de la asignatura!

@@ -14,14 +14,19 @@ try{
 	    throw new Exception;
 	} 
 	
-	$sql = "SELECT vote FROM Votes WHERE votation_id = '$votation'";
+	$sql = "SELECT question,answer_question from answers where id_poll=$votation";
 	$result = $conn->query($sql);
 	
 	$votes = array();
+	
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
-	        $votes[] = $row["vote"];
-	    }
+			if (count($row)!=0){
+	        $votes[] = $row["question"];
+			$votes[] = $row["answer_question"];
+	    
+			}
+		}
 	}
 	
 	echo json_encode(array("votes"=>$votes, "msg" => 1));

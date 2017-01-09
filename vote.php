@@ -6,9 +6,13 @@ try{
 
 	header("Content-Type:application/json");
 	
-	$data = json_decode(file_get_contents('php://input'),true);
-	$vote = $data["vote"];
-	$votation_id = intval($data["votation_id"]);
+	$data 		 = json_decode(file_get_contents('php://input'),true);
+	$id			 = intval($data["id"]);
+	$age  		 = intval($data["age"]);
+	$genre 		 = $data["genre"];
+	$comunity	 = $data["autonomous_comunity"];
+	$votation_id = intval($data["id_poll"]);
+	$answers	 = $data["answers"];
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
@@ -16,10 +20,38 @@ try{
 		throw new Exception;
 	} 
 	
-	$sql = "INSERT INTO Votes(vote, votation_id) VALUES ('$vote', '$votation_id')";
+	$idvoto = "SELECT code_vote FROM Votes";
+	$idvotos = $conn ->query($idvoto);
+	$votes = array();
+	if ($idvotos->num_rows > 0) {
+	    while($row = $idvotos->fetch_assoc()) {
+			if (count($row)!=0){
+	        $votes[] = $row["code_vote"];
+	    	}
+		}
+	}
+	
+	if (in_array($id, $votes)) {
+    echo 'Id del voto ya existe';
+	}else{		
+	
+	
+	$sql = "INSERT INTO Votes(age,code_vote, id_poll,genre,comunity) VALUES ('$age','$id', '$votation_id','$genre','$comunity')";
 	$result = $conn->query($sql);
+	echo gettype($result);
+	foreach($answers as $valor){
+		$question = $valor['question'];
+		$answer = $valor['answers_question'];	
+			
+		$ans = "INSERT INTO Answers(question,code_vote, answer_question,id_poll) VALUES ('$question','$id','$answer','$votation_id')";
+		$result = $conn->query($ans);
+		
+	}	
+	
+	
 	echo json_encode(array("msg"=>"1"));
 	$conn->close();
+	}
 	
 }catch(Exception $e){
 	echo json_encode(array("msg"=>0));

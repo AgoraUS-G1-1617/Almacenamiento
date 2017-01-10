@@ -8,7 +8,7 @@ try{
 	
 	$votation = intval($_GET["votation_id"]);
 	
-	$conn = new mysqli("exdb","test", "test", "egcdb");
+	$conn = new mysqli(servername,username, password, dbname);
 	
 	if ($votation === 0 || $conn->connect_error) {
 		echo($conn->connect_error);

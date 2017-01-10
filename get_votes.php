@@ -14,7 +14,7 @@ try{
 	    throw new Exception;
 	} 
 	
-	$sql = "SELECT question,answer_question from answers where id_poll=$votation";
+	$sql = "SELECT question,answer_question from Answers where id_poll=$votation";
 	$result = $conn->query($sql);
 	
 	$votes = array();

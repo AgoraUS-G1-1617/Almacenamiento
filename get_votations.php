@@ -6,10 +6,6 @@ try{
 
 	header("Content-Type:application/json");
 	$conn = new mysqli($servername,$username,$pass, $dbname);
-	
-	if ($votation_id === 0 || $conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	} 
 
 	$sql = "SELECT distinct votation_id FROM Votes ";
 	$result = $conn->query($sql);

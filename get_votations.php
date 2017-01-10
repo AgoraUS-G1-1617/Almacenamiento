@@ -9,7 +9,7 @@ try{
 	echo('username:'.$username."\n");
 	echo('password:'.$password."\n");
 	echo('dbname:'.$dbname."\n");
-	$conn = new mysqli(servername,username, password, dbname);
+	$conn = new mysqli("db","test", "test", "egcdb");
 	if ($conn->connect_error) {
 		echo($conn->connect_error);
 	    throw new Exception;

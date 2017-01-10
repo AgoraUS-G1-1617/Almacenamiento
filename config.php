@@ -1,6 +1,6 @@
 <?php 
  $username = "test";
  $servername ="exdb";
- $password = "test";
+ $pass = "test";
  $dbname = "egcdb";
 ?>

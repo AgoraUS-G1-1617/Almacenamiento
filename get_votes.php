@@ -8,9 +8,10 @@ try{
 	
 	$votation = intval($_GET["votation_id"]);
 	
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli("exdb","test", "test", "egcdb");
 	
 	if ($votation === 0 || $conn->connect_error) {
+		echo($conn->connect_error);
 	    throw new Exception;
 	} 
 	
@@ -33,7 +34,6 @@ try{
 	$conn->close();
 }catch(Exception $e){
 	echo json_encode(array("msg"=>0));
-	echo($e);
 }
 die();
 

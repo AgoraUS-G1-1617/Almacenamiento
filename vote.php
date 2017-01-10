@@ -14,7 +14,7 @@ try{
 	$votation_id = intval($data["id_poll"]);
 	$answers	 = $data["answers"];
 	
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli("exdb","test", "test", "egcdb");
 	
 	if ($votation_id === 0 || $conn->connect_error) {
 		echo($conn->connect_error);
@@ -55,9 +55,7 @@ try{
 	
 }catch(Exception $e){
 	echo json_encode(array("msg"=>0));
-	echo($e);
 }
 die();
 
 ?>
-

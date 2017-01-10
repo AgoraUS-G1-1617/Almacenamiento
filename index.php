@@ -199,7 +199,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 					<td> 
 						vote 
 						<br/>
-						(<a>https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>)
+						(<a>https://egc1617almacenamiento.000webhostapp.com/vote.php</a>)
 					</td>
 					<td> 
 						POST
@@ -222,7 +222,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 					<td> 
 						get_votes 
 						<br />
-						(<a>https://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php</a>)
+						(<a>hhttps://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php</a>)
 					</td>
 					<td> 
 						GET

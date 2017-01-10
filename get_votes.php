@@ -11,7 +11,7 @@ try{
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
 	if ($votation === 0 || $conn->connect_error) {
-		echo(connect_error);
+		echo($conn->connect_error);
 	    throw new Exception;
 	} 
 	

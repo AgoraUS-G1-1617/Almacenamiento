@@ -5,9 +5,13 @@ include 'config.php';
 try{
 
 	header("Content-Type:application/json");
+	echo('servername:'.$servername."\n");
+	echo('username:'.$username."\n");
+	echo('password:'.$password."\n");
+	echo('dbname:'.$dbname."\n");
 	$conn = new mysqli(servername,username, password, dbname);
 	if ($conn->connect_error) {
-		echo(connect_error);
+		echo($conn->connect_error);
 	    throw new Exception;
 	} 
 	$sql = "SELECT distinct id_poll FROM Votes ";

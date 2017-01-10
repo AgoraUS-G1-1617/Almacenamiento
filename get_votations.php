@@ -6,6 +6,10 @@ try{
 
 	header("Content-Type:application/json");
 	$conn = new mysqli(servername,username, password, dbname);
+	if ($conn->connect_error) {
+		echo(connect_error);
+	    throw new Exception;
+	} 
 	$sql = "SELECT distinct id_poll FROM Votes ";
 	$result = $conn->query($sql);
 	

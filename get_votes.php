@@ -11,7 +11,6 @@ try{
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
 	if ($votation === 0 || $conn->connect_error) {
-		echo(connect_error);
 	    throw new Exception;
 	} 
 	
@@ -34,6 +33,7 @@ try{
 	$conn->close();
 }catch(Exception $e){
 	echo json_encode(array("msg"=>0));
+	echo($e);
 }
 die();
 

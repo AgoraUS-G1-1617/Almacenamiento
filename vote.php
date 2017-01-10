@@ -33,7 +33,14 @@ try{
 	}
 	
 	if (in_array($id, $votes)) {
-    echo 'Id del voto ya existe';
+		foreach($answers as $valor){
+		$question = $valor['question'];
+		$answer = $valor['answers_question'];	
+			
+		$ans = "UPDATE Answers SET answer_question='$answer' WHERE id_poll='$votation_id' and question='$question' and code_vote='$id'";
+		$result = $conn->query($ans);
+		
+	}	
 	}else{		
 	
 	
@@ -49,9 +56,10 @@ try{
 	}	
 	
 	
+	
+	}
 	echo json_encode(array("msg"=>"1"));
 	$conn->close();
-	}
 	
 }catch(Exception $e){
 	echo json_encode(array("msg"=>0));

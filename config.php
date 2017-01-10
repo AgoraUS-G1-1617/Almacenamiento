@@ -1,8 +1,12 @@
 <?php
 
-$servername = "localhost";
-$username = "id457692_root";
-$password = "egc1617";
-$dbname = "id457692_votes";
+ define("servername", "exdb");
+ define("username", "test");
+ define("password", "test");
+ define("dbname", "egcdb");
 
+
+ define("DB_HOST", "mysql:dbname=egcdb;host=db");
+ define("DB_USER", "storage_user");
+ define("DB_PASS", "user");
 ?>

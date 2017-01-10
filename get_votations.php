@@ -5,9 +5,7 @@ include 'config.php';
 try{
 
 	header("Content-Type:application/json");
-	
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
+	$conn = new mysqli(servername,username, password, dbname);
 	$sql = "SELECT distinct id_poll FROM Votes ";
 	$result = $conn->query($sql);
 	
@@ -24,5 +22,4 @@ try{
 	echo json_encode(array("msg"=>0));
 }
 die();
-
 ?>

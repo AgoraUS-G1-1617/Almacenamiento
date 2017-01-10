@@ -6,6 +6,9 @@ Toda la documentación de la aplicación, junto a toda la información del equip
 https://1984.lsi.us.es/wiki-egc/index.php/Almacenamiento_1617_G1
 
 Incluimos también el enlace a la API:
+https://almacenamiento.agoraus1.egc.duckdns.org/
+
+También tenemos la aplicación desplegada en un servidor web.
 https://egc1617almacenamiento.000webhostapp.com/
 
 # Dependencias

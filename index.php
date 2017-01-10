@@ -208,16 +208,20 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Permite almacenar un voto para una determinada votaci&oacute;n
 					</td>
 					<td>
-						vote: voto codificado <br/>
-						votation_id: id de la votaci&oacute;n
+						Ver ejemplo <br/>
+						
 					</td>
 					<td> 
 						Json con un mensaje de respuesta que indica si la operaci&oacute;n se ha resuelto correctamente. (el mensaje ser&aacute; 1 si todo sali&oacute; bien y 0 en caso contrario)
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/vote.php">https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>) Y con RESTClient ponemos: {"vote":"VotoPrueba","votation_id":"2"}
+						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/vote.php">https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>)
+						 Y con AdvanceRESTClient ponemos: {"age":24,"id":"1","autonomous_comunity":"Andalucia","genre":"masculino","id_poll":3,
+ 						 "answers":[{"question":"Pregunta 1","answers_question":"SI"},
+            			 {"question":"Pregunta 2","answers_question":"NO"}]}
 					</td>
 				</tr>
+				<br />
 				<tr>
 					<td> 
 						get_votes 

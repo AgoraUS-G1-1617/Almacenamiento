@@ -199,7 +199,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 					<td> 
 						vote 
 						<br/>
-						(<a>https://egc1617almacenamiento.000webhostapp.com/vote.php</a>)
+						(<a>https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>)
 					</td>
 					<td> 
 						POST
@@ -215,7 +215,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con un mensaje de respuesta que indica si la operaci&oacute;n se ha resuelto correctamente. (el mensaje ser&aacute; 1 si todo sali&oacute; bien y 0 en caso contrario)
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/vote.php">https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>) Y con RESTClient ponemos: {"vote":"VotoPrueba","votation_id":"2"}
+						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/vote.php">https://almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>) Y con RESTClient ponemos: {"vote":"VotoPrueba","votation_id":"2"}
 					</td>
 				</tr>
 				<tr>
@@ -237,7 +237,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con la lista de votos y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/get_votes.php?votation_id=1">https://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1</a>)
+						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1">https://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1</a>)
 					</td>
 				</tr>
 				<tr>
@@ -259,7 +259,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con la lista de IDs de las votaciones y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://egc1617almacenamiento.000webhostapp.com/get_votations.php">https://almacenamiento.agoraus1.egc.duckdns.org/get_votations.php</a>)
+						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/get_votations.php">https://almacenamiento.agoraus1.egc.duckdns.org/get_votations.php</a>)
 					</td>
 				</tr>
 			</table>

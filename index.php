@@ -215,7 +215,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con un mensaje de respuesta que indica si la operaci&oacute;n se ha resuelto correctamente. (el mensaje ser&aacute; 1 si todo sali&oacute; bien y 0 en caso contrario)
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/vote.php">https://beta.almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>)
+						(<a rel="nofollow" class="external free" href="https://beta.almacenamiento.agoraus1.egc.duckdns.org/vote.php">https://beta.almacenamiento.agoraus1.egc.duckdns.org/vote.php</a>)
 						 Y con AdvanceRESTClient ponemos: {"age":24,"id":"1","autonomous_comunity":"Andalucia","genre":"masculino","id_poll":3,
  						 "answers":[{"question":"Pregunta 1","answers_question":"SI"},
             			 {"question":"Pregunta 2","answers_question":"NO"}]}
@@ -241,7 +241,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con la lista de votos y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1">https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1</a>)
+						(<a rel="nofollow" class="external free" href="https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1">https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=1</a>)
 					</td>
 				</tr>
 				<tr>
@@ -263,7 +263,7 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
 						Json con la lista de IDs de las votaciones y un campo "msg" que indica si la operaci&oacute;n se realiz&oacute; correctamente.
 					</td>
 					<td> 
-						(<a rel="nofollow" class="external free" href="https://almacenamiento.agoraus1.egc.duckdns.org/get_votations.php">https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votations.php</a>)
+						(<a rel="nofollow" class="external free" href="https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votations.php">https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votations.php</a>)
 					</td>
 				</tr>
 			</table>

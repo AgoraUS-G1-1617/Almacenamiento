@@ -1,18 +1,3 @@
-<?php 
-
-include 'services/securityStatics.php';
-
-$isLoguedAsNotAdmin = false;
-
-if(!$isLoguedAsNotAdmin){
-	$isLoguedAsNotAdmin = isLoguedAsNotAdmin();
-}
-if($isLoguedAsNotAdmin){
-	echo "Usuario no administrador.";
-	exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,35 +49,144 @@ if($isLoguedAsNotAdmin){
 		<div class="col-lg-8 col-lg-offset-2 text-center">
 			<h2 class="section-heading">Estadísticas</h2>
 			<hr class="light">
-			<p>Aqu&iacute; podr&aacute; ver el n&uacute;mero de votos totales (Total) almacenados por cada votaci&oacute;n (Votation_id)</p>
+			<p>Aqu&iacute; podr&aacute; ver distintos datos sobre el contenido de la base de datos</p>
 		</div>
 	<hr/>
 	</section>
 	
+	<p align="center">VOTACIONES POR ENCUESTA</p>
 	<table class="table table-hover">
 	<tr>
-		<td id="titleColumn"><b>Votation_id</b></td>
-		<td id="titleColumn"><b>Total</b></td>
+		<td id="titleColumn"><b>Total de Votaciones</b></td>
+		<td id="titleColumn"><b>Id de la Votación</b></td>
 	</tr>
 	
 	<?php
 		include 'config.php';
 		
-		$link = @mysql_connect($servername, $username,$password) or die ("Error al conectar a la base de datos.");
-  		@mysql_select_db($dbname, $link) or die ("Error al conectar a la base de datos.");
+		$link = new mysqli($servername,$username, $pass, $dbname);
 		
 		
-		$sql = "SELECT votation_id, COUNT(*) FROM Votes GROUP BY votation_id";
+		$sql = "SELECT COUNT(*),id_poll FROM Votes group by id_poll";		
+		$result = $link ->query($sql);
+		$cont=0;
 		
-		$result = mysql_query($sql);
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
 			
-		while($row = mysql_fetch_array($result)){
-			echo "<tr><td>" . $row["votation_id"] . "</td>"; 
-			echo "<td>" . $row["COUNT(*)"] . "</td></tr>"; 
 		}
+		$cont=0;
 		
-		mysql_free_result($result);
-		mysql_close();
+		$link->close();
+	?>	
+	
+	</table>
+	
+	<p align="center">TOTAL DE VOTOS REGISTRADOS</p>
+	<table class="table table-hover">
+	<tr>
+		<td id="titleColumn"><b>Total de Votos</b></td>
+	</tr>
+	
+	<?php
+		include 'config.php';
+		
+		$link = new mysqli($servername,$username, $pass, $dbname);
+		
+		
+		$sql = "SELECT COUNT(*) FROM Votes";
+		
+		$result = $link ->query($sql);
+			
+		$row=$result->fetch_assoc();
+		$i=($row["COUNT(*)"]);
+		echo "<tr><td>" . $i . "</td>"; 
+		
+		$link->close();
+	?>	
+	
+	</table>
+	
+	<p align="center">VOTACIONES POR EDAD</p>
+	<table class="table table-hover">
+	<tr>
+		<td id="titleColumn"><b>Votos por Edad</b></td>
+		<td id="titleColumn"><b>Edad</b></td>
+	</tr>
+	
+	<?php
+		include 'config.php';
+		
+		$link = new mysqli($servername,$username, $pass, $dbname);
+		
+		
+		$sql = "SELECT COUNT(*),age FROM Votes GROUP BY age";
+		
+		$result = $link ->query($sql);
+		$cont=0;
+		
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
+			
+		}
+		$cont=0;
+		
+		$link->close();
+	?>	
+	
+	</table>
+	
+	<table class="table table-hover">
+	<tr>
+		<td id="titleColumn"><b>Votos por Comunidad</b></td>
+		<td id="titleColumn"><b>Comunidad</b></td>
+	</tr>
+	
+	<?php
+		include 'config.php';
+		
+		$link = new mysqli($servername,$username, $pass, $dbname);
+		
+		
+		$sql = "SELECT COUNT(*),comunity FROM Votes group by comunity";		
+		$result = $link ->query($sql);
+		
+		$cont=0;
+		
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
+			
+		}
+		$cont=0;
+		
+		$link->close();
 	?>	
 	
 	</table>

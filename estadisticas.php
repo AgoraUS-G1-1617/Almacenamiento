@@ -54,9 +54,11 @@
 	<hr/>
 	</section>
 	
+	<p align="center">VOTACIONES POR ENCUESTA</p>
 	<table class="table table-hover">
 	<tr>
 		<td id="titleColumn"><b>Total de Votaciones</b></td>
+		<td id="titleColumn"><b>Id de la Votación</b></td>
 	</tr>
 	
 	<?php
@@ -65,19 +67,31 @@
 		$link = new mysqli($servername,$username, $pass, $dbname);
 		
 		
-		$sql = "SELECT COUNT(*) FROM Votes GROUP BY poll_id";
-		
+		$sql = "SELECT COUNT(*),id_poll FROM Votes group by id_poll";		
 		$result = $link ->query($sql);
+		$cont=0;
+		
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
 			
-		$row=$result->fetch();
-		$i=($row["COUNT(*)"]);
-		echo "<tr><td>" . $i . "</td>"; 
+		}
+		$cont=0;
 		
 		$link->close();
 	?>	
 	
 	</table>
 	
+	<p align="center">TOTAL DE VOTOS REGISTRADOS</p>
 	<table class="table table-hover">
 	<tr>
 		<td id="titleColumn"><b>Total de Votos</b></td>
@@ -102,9 +116,11 @@
 	
 	</table>
 	
+	<p align="center">VOTACIONES POR EDAD</p>
 	<table class="table table-hover">
 	<tr>
 		<td id="titleColumn"><b>Votos por Edad</b></td>
+		<td id="titleColumn"><b>Edad</b></td>
 	</tr>
 	
 	<?php
@@ -113,13 +129,25 @@
 		$link = new mysqli($servername,$username, $pass, $dbname);
 		
 		
-		$sql = "SELECT COUNT(*) FROM Votes GROUP BY age_id";
+		$sql = "SELECT COUNT(*),age FROM Votes GROUP BY age";
 		
 		$result = $link ->query($sql);
+		$cont=0;
+		
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
 			
-		$row=$result->fetch_assoc();
-		$i=($row["COUNT(*)"]);
-		echo "<tr><td>" . $i . "</td>"; 
+		}
+		$cont=0;
 		
 		$link->close();
 	?>	
@@ -129,6 +157,7 @@
 	<table class="table table-hover">
 	<tr>
 		<td id="titleColumn"><b>Votos por Comunidad</b></td>
+		<td id="titleColumn"><b>Comunidad</b></td>
 	</tr>
 	
 	<?php
@@ -137,13 +166,25 @@
 		$link = new mysqli($servername,$username, $pass, $dbname);
 		
 		
-		$sql = "SELECT COUNT(*) FROM Votes GROUP BY community";
-		
+		$sql = "SELECT COUNT(*),comunity FROM Votes group by comunity";		
 		$result = $link ->query($sql);
+		
+		$cont=0;
+		
+		while($row = $result->fetch_assoc()){
+						
+			foreach ($row as $value) {
+				if($cont%2==0 || $cont==0){
+				echo "<tr><td>" . $value . "</td>";
+				} else{
+					echo  "<td>".$value .   "</td>";
+				}
+				$cont ++;
+			}		
+				
 			
-		$row=$result->fetch_assoc();
-		$i=($row["COUNT(*)"]);
-		echo "<tr><td>" . $i . "</td>"; 
+		}
+		$cont=0;
 		
 		$link->close();
 	?>	

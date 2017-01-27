@@ -17,13 +17,13 @@ if(!$isLoguedAsAdmin){
 	$isLoguedAsAdmin = isLoguedAsAdmin();
 }
 
-
-/*
- * $returnUrl sirve para que cuando hagamos un login trabajando en desarrollo, la url a la que debe redirigirnos es http://localhost/egc/src/
- * Pero cuando estamos con la herramienta ya desplegada, la url a la que debe redirigirnos es https://egc1617almacenamiento.000webhostapp.com/
- */
-$returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
-//$returnUrl= "http://localhost/egc/src/"
+$isLogued = false;
+if(isset($_SESSION["inicioSesionCorrecto"])){	
+	if($_SESSION["inicioSesionCorrecto"]==true){
+	
+		$isLogued = true;
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -73,10 +73,10 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
-                <?php if(!$isLoguedAsAdmin and !$isLoguedAsNotAdmin): ?>
-                	<a class="navbar-brand page-scroll" href="https://autha.agoraus1.egc.duckdns.org//?returnUrl=<?php echo $returnUrl ?>">LOGIN</a>
-                <?php elseif($isLoguedAsAdmin || $isLoguedAsNotAdmin): ?>
-                	<a class="navbar-brand page-scroll" href="../src/services/logout.php">LOG OUT</a>
+                <?php if($isLogued==false): ?>
+                	<a class="navbar-brand page-scroll" href="http://localhost/Autenticacion/auth/welcome.php">LOGIN</a>
+                <?php elseif($isLogued==true): ?>
+                	<a class="navbar-brand page-scroll" href="../almacenamiento/services/logout.php">LOG OUT</a>
                 <?php endif; ?>
             </div>
 
@@ -141,14 +141,14 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
                         <p class="text-muted">Con nuestro sistema podr&aacute;s enviar un voto para que se almacene en la base de datos.</p>
                     </div>
                 </div>
-                 
+                
          <!-- Este es el bloque 'ESTADÍSTICAS' que se mostrar� cuando se est� logueado como admin-->
-         <?php if($isLoguedAsAdmin){ ?>
+         <?php if($isLogued==true){ ?>
                  <div class="col-md-4 text-center">
                     <div class="service-box">
                         <a href="../src/estadisticas.php"><i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i></a>
                         <h3>Estadísticas</h3>
-                        <p class="text-muted">A trav&eacute;s de <a href="../src/estadisticas.php">&eacute;ste</a> enlace podr&aacute; observar las estad&iacute;sticas de votos totales por cada tipo de votaci&oacute;n realizada.</p>
+                        <p class="text-muted">A trav&eacute;s de <a href="../almacenamiento/estadisticas.php">&eacute;ste</a> enlace podr&aacute; observar las estad&iacute;sticas de votos totales por cada tipo de votaci&oacute;n realizada.</p>
                     </div>
                 </div>
  		<!-- Este es el bloque 'ESTADÍSTICAS' que se mostrar� cuando NO se est� logueado como admin-->
@@ -158,13 +158,9 @@ $returnUrl= "https://egc1617almacenamiento.000webhostapp.com/"
                     <div class="service-box">
                         <i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i>
                         <h3>Estadísticas</h3>
-                        <p class="text-muted">Necesitar&aacute; hacer login como administrador para poder acceder a las estad&iacute;sticas.</p>
+                        <p class="text-muted">Necesitar&aacute; hacer login para poder acceder a las estad&iacute;sticas.</p>
                         <h3>
-                        	<?php if($isLoguedAsNotAdmin): ?>
-                				<a id="loginStyle" href="../src/services/logout.php">LOG OUT</a>
-             			    <?php else: ?>
-                        		<a id="loginStyle" href="http://auth-egc.azurewebsites.net/?returnUrl=<?php echo $returnUrl ?>">LOGIN</a>
-               				<?php endif; ?>
+                        	<a id="loginStyle" href="http://localhost/Autenticacion/auth/welcome.php">LOGIN</a>               				
                         </h3>
                     </div>
                 </div>

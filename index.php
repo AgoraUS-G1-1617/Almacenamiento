@@ -2,21 +2,6 @@
 
 session_start();
 
-include 'services/login.php';
-
-$isLoguedAsAdmin = false;
-$isLoguedAsNotAdmin = false;
-if(isset($_GET['token'])){
-	$isLoguedAsAdmin = loginService($_GET['token']);
-	$isLoguedAsNotAdmin = loginServiceAsNotAdmin($_GET['token']);
-}
-if(!$isLoguedAsNotAdmin){
-	$isLoguedAsNotAdmin = isLoguedAsNotAdmin();
-}
-if(!$isLoguedAsAdmin){
-	$isLoguedAsAdmin = isLoguedAsAdmin();
-}
-
 $isLogued = false;
 if(isset($_SESSION["inicioSesionCorrecto"])){	
 	if($_SESSION["inicioSesionCorrecto"]==true){

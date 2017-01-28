@@ -10,7 +10,7 @@ class APITest extends PHPUnit_Framework_TestCase{
 		$data = json_decode($string,true);
 		$votes = $data["votes"];
 		$msg = $data["msg"];
-		$this->assertNotEquals(count($votes),0);
+		$this->assertEquals(count($votes),28);
 		$this->assertEquals($msg,'1');
 	}
 	

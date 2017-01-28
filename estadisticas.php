@@ -39,7 +39,7 @@
 		<div id="styleHeadEstadisticas" >
 			<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="../src/index.php">ALMACENAMIENTO DE VOTOS</a>
+                        <a class="page-scroll" href="../almacenamiento/index.php">ALMACENAMIENTO DE VOTOS</a>
                     </li>
                 </ul>
 			</div>

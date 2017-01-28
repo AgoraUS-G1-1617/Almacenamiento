@@ -54,6 +54,8 @@
 	<hr/>
 	</section>
 	
+	<?php if($isLogged==true){ ?>
+	
 	<p align="center">VOTACIONES POR ENCUESTA</p>
 	<table class="table table-hover">
 	<tr>
@@ -205,7 +207,12 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
-
+	<?php }else{ ?>
+		
+	<a>Debe loguearse para acceder aesta página</a>
+		
+		
+	<?php } ?>
 </body>
 
 </html>

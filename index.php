@@ -1,14 +1,6 @@
 <?php 
 
-session_start();
-
-$isLogued = false;
-if(isset($_SESSION["inicioSesionCorrecto"])){	
-	if($_SESSION["inicioSesionCorrecto"]==true){
-	
-		$isLogued = true;
-	}
-}
+include 'services/checkLogin.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -59,9 +51,9 @@ if(isset($_SESSION["inicioSesionCorrecto"])){
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
                 <?php if($isLogued==false): ?>
-                	<a class="navbar-brand page-scroll" href="http://localhost/Autenticacion/auth/welcome.php">LOGIN</a>
+                	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
                 <?php elseif($isLogued==true): ?>
-                	<a class="navbar-brand page-scroll" href="../almacenamiento/services/logout.php">LOG OUT</a>
+                	<a class="navbar-brand page-scroll" href="services/logout.php">LOG OUT</a>
                 <?php endif; ?>
             </div>
 
@@ -131,9 +123,9 @@ if(isset($_SESSION["inicioSesionCorrecto"])){
          <?php if($isLogued==true){ ?>
                  <div class="col-md-4 text-center">
                     <div class="service-box">
-                        <a href="../src/estadisticas.php"><i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i></a>
+                        <a href="../estadisticas.php"><i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i></a>
                         <h3>Estadísticas</h3>
-                        <p class="text-muted">A trav&eacute;s de <a href="../almacenamiento/estadisticas.php">&eacute;ste</a> enlace podr&aacute; observar las estad&iacute;sticas de votos totales por cada tipo de votaci&oacute;n realizada.</p>
+                        <p class="text-muted">A trav&eacute;s de <a href="estadisticas.php">&eacute;ste</a> enlace podr&aacute; observar las estad&iacute;sticas de votos totales por cada tipo de votaci&oacute;n realizada.</p>
                     </div>
                 </div>
  		<!-- Este es el bloque 'ESTADÍSTICAS' que se mostrar� cuando NO se est� logueado como admin-->
@@ -145,7 +137,7 @@ if(isset($_SESSION["inicioSesionCorrecto"])){
                         <h3>Estadísticas</h3>
                         <p class="text-muted">Necesitar&aacute; hacer login para poder acceder a las estad&iacute;sticas.</p>
                         <h3>
-                        	<a id="loginStyle" href="http://localhost/Autenticacion/auth/welcome.php">LOGIN</a>               				
+                        	<a id="loginStyle" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>               				
                         </h3>
                     </div>
                 </div>

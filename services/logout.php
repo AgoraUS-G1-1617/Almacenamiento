@@ -1,8 +1,13 @@
-<?php 
+<?php
+
 session_start();
 
-//Esto le da un tiempo de vida a la variable token de la cookie nulo. Por lo que basicamente elimina la variable.
-session_destroy();
-header("Location:../index.php");
-quit();
+	unset($_SESSION["administradorCorrecto"]);
+	unset($_SESSION["inicioSesionCorrecto"]);
+	setcookie("token", NULL, time()-3600);
+    setcookie("user", NULL, time()-3600);
+
+	Header("Location: ../index.php");
+
+
 ?>

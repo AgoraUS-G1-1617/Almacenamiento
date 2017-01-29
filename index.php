@@ -50,9 +50,9 @@ include 'services/checkLogin.php';
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
-                <?php if($isLogued==false): ?>
+                <?php if(!isset($token)): ?>
                 	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
-                <?php elseif($isLogued==true): ?>
+                <?php elseif(isset($token)): ?>
                 	<a class="navbar-brand page-scroll" href="services/logout.php">LOG OUT</a>
                 <?php endif; ?>
             </div>
@@ -62,6 +62,7 @@ include 'services/checkLogin.php';
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="#about">&iquest;Por d&oacute;nde empezamos...?</a>
+                        <a class="page-scroll" href="#about">$token</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Servicios</a>

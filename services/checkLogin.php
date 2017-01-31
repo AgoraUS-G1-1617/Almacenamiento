@@ -1,39 +1,46 @@
 <?php 
 
-session_start();
-
-
-$isLogued = false;
-if(isset($_SESSION["inicioSesionCorrecto"])){	
-	if($_SESSION["inicioSesionCorrecto"]==true){
-	
-		$isLogued = true;
-		$token = $_COOKIE["token"];
-	}
+$isLogged =false;
+if(isset($_COOKIE['token'])){
+	$isLogged =checkLogin();
 }
 
+function checkLogin(){
+	$res = false;
+	
+	if(isset($_COOKIE['token'])){
+	$res = checkToken($_COOKIE['token']);
+	}
+	if($res == true){
+		$_SESSION['inicioSesion'] = true;
+	
+	}else{
+	
+		$_SESSION['inicioSesion'] = false;
+}
+	return $res;
+}
 
 function checkToken($token){
  	try{
- 		// Construyendo las URLs para corroborar token
- 		$url = 'https://authb.agoraus1.egc.duckdns.org/api/index.php?method=checkToken&token='.$token;
+ 	
 		
- 		// Cogiendo los datos
- 		$string = file_get_contents($url);
- 		// Decodificando
- 		$data = json_decode($string,true);
- 		// Cogiendo el atributo concreto que necesitamos
- 		$valido = $data['valid'];
+ 		$url = 'https://authb.agoraus1.egc.duckdns.org/api/index.php?method=checkToken&token='.$token;
+		$string = file_get_contents($url);
+		$data = json_decode(substr($string, 3),true);
+		$valido = $data["valid"];
  		
- 		if($valido == 1){
+ 		if($valido == true){
  			return true;
- 		}else{
+ 		}elseif($valido==false){
  			return false;
  		}
+			
  		
  	}catch(Exception $e){
  		return false;
  	}
  }
+
 
 ?>

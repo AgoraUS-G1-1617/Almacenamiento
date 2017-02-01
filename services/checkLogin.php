@@ -1,6 +1,9 @@
 <?php 
 
 $isLogged =false;
+$string = "";
+$data = null;
+$valido = null;
 $cToken= checkToken($_COOKIE['token']);
 $cLogin = checkLogin();
 if(isset($_COOKIE['token'])){
@@ -29,7 +32,7 @@ function checkToken($token){
 		
  		$url = 'https://authb.agoraus1.egc.duckdns.org/api/index.php?method=checkToken&token='.$token;
 		$string = file_get_contents($url);
-		$data = json_decode($string,true);
+		$data = json_decode(substr($string, 3),true);
 		$valido = $data["valid"];
  		
  		if($valido == true){

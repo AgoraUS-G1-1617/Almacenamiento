@@ -56,6 +56,9 @@ include 'services/checkLogin.php';
             	<?php }?>
             	<a><?php var_dump ($cToken)?></a>
             	<a><?php var_dump ($cLogin)?></a>
+            	<a><?php var_dump ($string)?></a>
+            	<a><?php var_dump ($data)?></a>
+            	<a><?php var_dump ($valido)?></a>
                 <?php if($isLogged==false): ?>
                 	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
                 	

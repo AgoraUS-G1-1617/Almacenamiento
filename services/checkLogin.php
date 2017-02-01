@@ -1,12 +1,14 @@
 <?php 
 
 $isLogged =false;
-$cToken= checkToken($_COOKIE['token']);
-$string = $cToken[1];
-$data = $cToken[2];
-$valido = $cToken[3];
-$cLogin = checkLogin();
+$string = null;
+$data = null;
+$valido = null;
 if(isset($_COOKIE['token'])){
+	$cToken= checkToken($_COOKIE['token']);
+	$string = $cToken[1];
+	$data = $cToken[2];
+	$valido = $cToken[3];
 	$isLogged =checkLogin();
 }
 

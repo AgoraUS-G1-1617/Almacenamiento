@@ -54,8 +54,6 @@ include 'services/checkLogin.php';
             	<?php if (isset($_COOKIE['token'])){ ?>
             	<a><?php echo $_COOKIE['token']?></a>
             	<?php }?>
-            	<a><?php var_dump ($cToken)?></a>
-            	<a><?php var_dump ($cLogin)?></a>
             	<a><?php var_dump ($string)?></a>
             	<a><?php var_dump ($data)?></a>
             	<a><?php var_dump ($valido)?></a>

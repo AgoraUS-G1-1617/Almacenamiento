@@ -10,7 +10,7 @@ if(isset($_COOKIE['token'])){
 	$string = $cToken[1];
 	$data = $cToken[2];
 	$valido = $cToken[3];
-	$valido = $cToken[4];
+	$url = $cToken[4];
 	$isLogged =checkLogin();
 }
 
@@ -36,7 +36,7 @@ function checkToken($token){
  	
 		
  		$url = 'https://authb.agoraus1.egc.duckdns.org/api/index.php?method=checkToken&token='.$token;
-		$string = file_get_contents($url);
+		$string = file_get_contents_curl($url);
 		$data = json_decode(substr($string, 3),true);
 		$valido = $data["valid"];
  		
@@ -51,6 +51,23 @@ function checkToken($token){
  		return array(false,$string,$data,$valido,$url);
  	}
  }
+
+function file_get_contents_curl($url) {
+    	
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE); 
+	curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);      
+
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    return $data;
+}
 
 
 ?>

@@ -1,9 +1,10 @@
 <?php 
 
 $isLogged =false;
-$string = "";
-$data = null;
-$valido = null;
+$ar = checkToken($token);
+$string = $ar[1];
+$data = $ar[2];
+$valido = $ar[3];
 $cToken= checkToken($_COOKIE['token']);
 $cLogin = checkLogin();
 if(isset($_COOKIE['token'])){
@@ -36,14 +37,14 @@ function checkToken($token){
 		$valido = $data["valid"];
  		
  		if($valido == true){
- 			return true;
+ 			return array(true,$string,$data,$valido);
  		}elseif($valido==false){
- 			return false;
+ 			return array(false,$string,$data,$valido);
  		}
 			
  		
  	}catch(Exception $e){
- 		return "exception";
+ 		return array(false,$string,$data,$valido);
  	}
  }
 

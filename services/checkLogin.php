@@ -15,7 +15,8 @@ function checkLogin(){
 	$res = false;
 	
 	if(isset($_COOKIE['token'])){
-	$res = checkToken($_COOKIE['token']);
+	$arr = checkToken($_COOKIE['token']);
+	$res = $arr[0];
 	}
 	if($res == true){
 		$_SESSION['inicioSesion'] = true;

@@ -54,8 +54,8 @@ include 'services/checkLogin.php';
             	<?php if (isset($_COOKIE['token'])){ ?>
             	<a><?php echo $_COOKIE['token']?></a>
             	<?php }?>
-            	<a><?php echo $cToken?></a>
-            	<a><?php echo $cLogin?></a>
+            	<a><?php var_dump ($cToken)?></a>
+            	<a><?php var_dump ($cLogin)?></a>
                 <?php if($isLogged==false): ?>
                 	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
                 	

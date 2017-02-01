@@ -40,7 +40,7 @@ function checkToken($token){
 			
  		
  	}catch(Exception $e){
- 		return false;
+ 		return "exception";
  	}
  }
 

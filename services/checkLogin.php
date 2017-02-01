@@ -1,11 +1,10 @@
 <?php 
 
 $isLogged =false;
-$ar = checkToken($token);
-$string = $ar[1];
-$data = $ar[2];
-$valido = $ar[3];
 $cToken= checkToken($_COOKIE['token']);
+$string = $cToken[1];
+$data = $cToken[2];
+$valido = $cToken[3];
 $cLogin = checkLogin();
 if(isset($_COOKIE['token'])){
 	$isLogged =checkLogin();

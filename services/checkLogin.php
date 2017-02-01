@@ -1,6 +1,8 @@
 <?php 
 
 $isLogged =false;
+$cToken= checkToken($_COOKIE['token']);
+$cLogin = checkLogin();
 if(isset($_COOKIE['token'])){
 	$isLogged =checkLogin();
 }

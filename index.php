@@ -51,9 +51,11 @@ include 'services/checkLogin.php';
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
-            
+            	<?php if (isset($_COOKIE['token'])){ ?>
+            	<a><?php echo $_COOKIE['token']?></a>
+            		<?php }?>
                 <?php if($isLogged==false): ?>
-                	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org//welcome.php">LOGIN</a>
+                	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
                 	
                 <?php elseif($isLogged==true): ?>
                 	<a class="navbar-brand page-scroll" href="services/logout.php">LOG OUT</a>

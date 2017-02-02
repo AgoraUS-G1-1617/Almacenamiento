@@ -8,9 +8,7 @@ class APITest extends PHPUnit_Framework_TestCase{
 		$url = 'http://localhost/Almacenamiento/get_votes.php?votation_id=' . $id_vote;
 		$string = file_get_contents($url);
 		$data = json_decode($string,true);
-		$votes = $data["votes"];
 		$msg = $data["msg"];
-		$this->assertEquals(count($votes),28);
 		$this->assertEquals($msg,'1');
 	}
 	
@@ -19,8 +17,8 @@ class APITest extends PHPUnit_Framework_TestCase{
 		$url = 'http://localhost/Almacenamiento/get_votations.php';
 		$string = file_get_contents($url);
 		$data = json_decode($string,true);
-		$votations = $data["votations"];
-		$this->assertEquals(count($votations),4);
+		$msg= $data["msg"];
+		$this->assertEquals($msg,'1');
 	}
 	
 	// Vote

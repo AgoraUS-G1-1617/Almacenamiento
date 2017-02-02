@@ -1,16 +1,9 @@
 <?php 
 
 $isLogged =false;
-$string = null;
-$data = null;
-$valido = null;
-$url = null;
 if(isset($_COOKIE['token'])){
-	$cToken= checkToken($_COOKIE['token']);
-	$string = $cToken[1];
-	$data = $cToken[2];
-	$valido = $cToken[3];
-	$url = $cToken[4];
+		
+	$res= checkLogin();
 	$isLogged =checkLogin();
 }
 
@@ -18,8 +11,8 @@ function checkLogin(){
 	$res = false;
 	
 	if(isset($_COOKIE['token'])){
-	$arr = checkToken($_COOKIE['token']);
-	$res = $arr[0];
+	$res = checkToken($_COOKIE['token']);
+
 	}
 	if($res == true){
 		$_SESSION['inicioSesion'] = true;
@@ -41,14 +34,14 @@ function checkToken($token){
 		$valido = $data["valid"];
  		
  		if($valido == true){
- 			return array(true,$string,$data,$valido,$url);
+ 			return array(true);
  		}elseif($valido==false){
- 			return array(false,$string,$data,$valido,$url);
+ 			return array(false);
  		}
 			
  		
  	}catch(Exception $e){
- 		return array(false,$string,$data,$valido,$url);
+ 		return array(false);
  	}
  }
 

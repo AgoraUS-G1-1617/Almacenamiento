@@ -5,7 +5,7 @@ class APITest extends PHPUnit_Framework_TestCase{
 	// Get votes
 	public function testGetVotes(){
 		$id_vote = 1;
-		$url = 'http://localhost/Almacenamiento/get_votes.php?votation_id=' . $id_vote;
+		$url = 'https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votes.php?votation_id=' . $id_vote;
 		$string = file_get_contents($url);
 		$data = json_decode($string,true);
 		$msg = $data["msg"];
@@ -14,7 +14,7 @@ class APITest extends PHPUnit_Framework_TestCase{
 	
 	// Get votations
 	public function testGetVotations(){
-		$url = 'http://localhost/Almacenamiento/get_votations.php';
+		$url = 'https://beta.almacenamiento.agoraus1.egc.duckdns.org/get_votations.php';
 		$string = file_get_contents($url);
 		$data = json_decode($string,true);
 		$msg= $data["msg"];
@@ -24,7 +24,7 @@ class APITest extends PHPUnit_Framework_TestCase{
 	// Vote
 	public function testVote(){	
 		$ch = curl_init();
-		$url = 'http://localhost/Almacenamiento/vote.php';
+		$url = 'https://beta.almacenamiento.agoraus1.egc.duckdns.org/vote.php';
 		$json = '{"age":1000,"id":"100","autonomous_comunity":"Prueba","genre":"prueba","id_poll":3,
   					"answers":[{"question":"Pregunta 1","answers_question":"SI"},
              		{"question":"Pregunta 2","answers_question":"NO"}]}';

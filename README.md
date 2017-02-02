@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AgoraUS-G1-1617/Almacenamiento.svg?branch=master)](https://travis-ci.org/AgoraUS-G1-1617/Almacenamiento)
+
 # EGC-Almacenamiento-de-votos-18-
 Repositorio del módulo de almacenamiento de votos correspondiente al proyecto AgoraUS de la asignatura de EGC.
 
@@ -14,5 +16,4 @@ https://egc1617almacenamiento.000webhostapp.com/
 # Dependencias
 PHP 5.6
 PHPUnit 5.1.2
-Phing 2.13.0
 Mysql 5.5.46

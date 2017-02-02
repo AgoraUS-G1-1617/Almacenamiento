@@ -1,6 +1,7 @@
 <?php 
-
+session_start();
 include 'services/checkLogin.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -50,9 +51,10 @@ include 'services/checkLogin.php';
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Almacenamiento</a>
-                <?php if($isLogued==false): ?>
+                <?php if($isLogged==false): ?>
                 	<a class="navbar-brand page-scroll" href="https://authb.agoraus1.egc.duckdns.org/welcome.php">LOGIN</a>
-                <?php elseif($isLogued==true): ?>
+                	
+                <?php elseif($isLogged==true): ?>
                 	<a class="navbar-brand page-scroll" href="services/logout.php">LOG OUT</a>
                 <?php endif; ?>
             </div>
@@ -62,6 +64,7 @@ include 'services/checkLogin.php';
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="#about">&iquest;Por d&oacute;nde empezamos...?</a>
+                        <a class="page-scroll" href="#about"></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Servicios</a>
@@ -120,7 +123,7 @@ include 'services/checkLogin.php';
                 </div>
                 
          <!-- Este es el bloque 'ESTADÍSTICAS' que se mostrar� cuando se est� logueado como admin-->
-         <?php if($isLogued==true){ ?>
+         <?php if($isLogged==true){ ?>
                  <div class="col-md-4 text-center">
                     <div class="service-box">
                         <a href="../estadisticas.php"><i class="fa fa-4x fa-pie-chart wow bounceIn text-primary" data-wow-delay=".1s"></i></a>

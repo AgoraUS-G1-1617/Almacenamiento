@@ -1,3 +1,8 @@
+<?php 
+
+include 'services/checkLogin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -209,7 +214,7 @@
     <script src="js/creative.js"></script>
 	<?php }else{ ?>
 		
-	<a>Debe loguearse para acceder aesta página</a>
+	<a>Debe loguearse para acceder a esta página</a>
 		
 		
 	<?php } ?>
